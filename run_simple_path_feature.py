@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from tabulate import tabulate
 from src import data_proc
 
-device = torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 class CrystalDataset(Dataset):
@@ -164,7 +164,7 @@ def test(model, dataloader, device, num_heads=4):
     }
 
 # 创建数据集和数据加载器
-dataset = CrystalDataset("/data/home/hzw1010/suth/elec_gw/dbs/clean.db")
+dataset = CrystalDataset("/home/sutianhao/data/elec/dbs/mpdata.db")
 train_dataloader = DataLoader(dataset, batch_size=64, num_workers=2, pin_memory=False,
                               shuffle=True, collate_fn=collate_fn, drop_last=False)
 test_dataloader = DataLoader(dataset, batch_size=64, num_workers=2, pin_memory=False,

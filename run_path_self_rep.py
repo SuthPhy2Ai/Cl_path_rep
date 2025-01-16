@@ -247,10 +247,10 @@ def test(model, dataloader, device, num_heads=4):
 
 
 
-device = torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # device = "cpu"
 print(f"Using device: {device}")
-dataset = CrystalDataset("/data/home/hzw1010/suth/elec_gw/dbs/mpdata.db")
+dataset = CrystalDataset("/home/sutianhao/data/elec/dbs/mpdata.db")
 
 
 # import random
